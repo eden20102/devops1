@@ -1,8 +1,15 @@
 #!/usr/bin/env bash
 
 password=$1
+tep="-f"
 error='\e[31m';
 successful='\e[32m';
+if [[ "$password" == "$tep" ]];then
+    file=$2
+
+password=$(cat $file)
+echo "$password"
+fi
 ####################################################################################################
 if [ ${#password} -lt 10 ];then
     echo -e $error "\t \n '$password' Password value must be at least 10 characters long"
